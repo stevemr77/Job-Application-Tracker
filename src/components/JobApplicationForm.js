@@ -8,7 +8,6 @@ class JobApplicationForm extends Component {
         position: "",
         date_applied: {},
         salary: 0,
-        job_applications: []
 
     }
 
@@ -28,9 +27,9 @@ class JobApplicationForm extends Component {
             user_id: this.props.id
         }
 
-        this.setState({
-            job_applications: [...this.state.job_applications, new_job_application]
-        })
+        this.props.setJobApplications(
+            [...this.props.jobApplications, new_job_application]
+        )
 
         
 

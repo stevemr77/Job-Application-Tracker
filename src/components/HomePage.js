@@ -17,11 +17,11 @@ export default function HomePage(props) {
 
   const handleDelete = (applicationToDelete) =>{
     const remainingApplications = jobApplications.filter(jobApplication => {
-      return jobApplication !== applicationToDelete
+      return jobApplication.id !== applicationToDelete.id
     })
-    setJobApplications({
-      jobAplications: remainingApplications
-    })
+    setJobApplications(
+      remainingApplications
+    )
     fetch(`http://localhost:3000/job_applications/${applicationToDelete.id}`, {
       method: 'DELETE'
     })
@@ -30,7 +30,7 @@ export default function HomePage(props) {
   return (
     <div>
       <h1>Job Application Tracking App!</h1>
-      <JobApplicationForm id={props.id} />
+      <JobApplicationForm jobApplications={jobApplications} setJobApplications={setJobApplications} id={props.id} />
       <JobApplicationContainer jobApplications={jobApplications} handleDelete={handleDelete}/> 
     </div>
   )
