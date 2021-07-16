@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 
 export default function HomePage(props) {
 
-  console.log(props.delete)
+  
 
   const [jobApplications, setJobApplications] = useState([])
 
@@ -15,12 +15,23 @@ export default function HomePage(props) {
       .then(jobApplications => setJobApplications( jobApplications ))
   },[props.id])
 
+  const handleDelete = (applicationToDelete) =>{
+    const remainingApplications = jobApplications.filter(jobApplication => {
+      return jobApplication !== applicationToDelete
+    })
+    setJobApplications({
+      jobAplications: remainingApplications
+    })
+    fetch(`http://localhost:3000/job_applications/${applicationToDelete.id}`, {
+      method: 'DELETE'
+    })
+  }
 
   return (
     <div>
       <h1>Job Application Tracking App!</h1>
       <JobApplicationForm id={props.id} />
-      <JobApplicationContainer jobApplications={jobApplications} delete={props.delete}/> 
+      <JobApplicationContainer jobApplications={jobApplications} handleDelete={handleDelete}/> 
     </div>
   )
 }

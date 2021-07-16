@@ -39,17 +39,17 @@ class App extends Component {
       .then(user => this.setState({ user }))
   }
 
-  handleDelete = (applicationToDelete) =>{
-    const remainingApplications = this.state.job_applications.filter(job_application => {
-      return job_application !== applicationToDelete
-    })
-    this.setState({
-      job_applications: remainingApplications
-    })
-    fetch(`http://localhost:3000/job_applications/${applicationToDelete.id}`, {
-      method: 'DELETE'
-    })
-  }
+  // handleDelete = (applicationToDelete) =>{
+  //   const remainingApplications = this.state.job_applications.filter(job_application => {
+  //     return job_application !== applicationToDelete
+  //   })
+  //   this.setState({
+  //     job_applications: remainingApplications
+  //   })
+  //   fetch(`http://localhost:3000/job_applications/${applicationToDelete.id}`, {
+  //     method: 'DELETE'
+  //   })
+  // }
 
 
   render(){
@@ -57,7 +57,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <Route path="/" exact render={(props) => <LoginPage {...props} login={this.login} /> } />
-          <Route path="/home" exact render={(props) => <HomePage {...props} job_applications={this.state.job_applications} delete={this.handleDelete} id={this.state.user.id}/> } />
+          <Route path="/home" exact render={(props) => <HomePage {...props} job_applications={this.state.job_applications} id={this.state.user.id}/> } />
         </div>
       </Router>
     );

@@ -7,7 +7,7 @@ export default function JobApplicationContainer(props) {
 
     const showJobApplications = () => {
         return props.jobApplications.map(jobApplication => {
-            return <JobApplicationCard jobApplication={ jobApplication } key={ jobApplication.id} delete={props.delete}/>
+            return <JobApplicationCard jobApplication={ jobApplication } key={ jobApplication.id} handleDelete={props.handleDelete}/>
         })
     }
 
