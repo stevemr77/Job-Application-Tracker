@@ -33,6 +33,11 @@ class App extends Component {
     })
   }
 
+  componentDidMount(){
+    fetch(`http://localhost:3000/users/${localStorage.userID}`)
+      .then(response => response.json())
+      .then(user => this.setState({ user }))
+  }
 
   handleDelete = (applicationToDelete) =>{
     const remainingApplications = this.state.job_applications.filter(job_application => {
@@ -46,11 +51,6 @@ class App extends Component {
     })
   }
 
-  componentDidMount(){
-    fetch(`http://localhost:3000/users/${localStorage.userID}`)
-      .then(response => response.json())
-      .then(user => this.setState({ user }))
-  }
 
   render(){
     return (

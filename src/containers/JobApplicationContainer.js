@@ -3,11 +3,11 @@ import JobApplicationCard from '../components/JobApplicationCard'
 
 export default function JobApplicationContainer(props) {
 
-    //console.log(props.job_applications)
+    
 
     const showJobApplications = () => {
         return props.jobApplications.map(jobApplication => {
-            return <JobApplicationCard jobApplication={ jobApplication } key={ jobApplication.id} delete={props.handleDelete}/>
+            return <JobApplicationCard jobApplication={ jobApplication } key={ jobApplication.id} delete={props.delete}/>
         })
     }
 

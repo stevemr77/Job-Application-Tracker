@@ -24,11 +24,15 @@ class JobApplicationForm extends Component {
             company_name: this.state.company_name,
             position: this.state.position,
             date_applied: this.state.date_applied,
-            salary: this.state.salary
+            salary: this.state.salary,
+            user_id: this.props.id
         }
+
         this.setState({
             job_applications: [...this.state.job_applications, new_job_application]
         })
+
+        
 
         fetch('http://localhost:3000/job_applications',{
             method: "POST",

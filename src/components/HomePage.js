@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react'
 
 export default function HomePage(props) {
 
+  console.log(props.delete)
+
   const [jobApplications, setJobApplications] = useState([])
 
   useEffect(() => {
@@ -13,11 +15,12 @@ export default function HomePage(props) {
       .then(jobApplications => setJobApplications( jobApplications ))
   },[props.id])
 
+
   return (
     <div>
       <h1>Job Application Tracking App!</h1>
-      <JobApplicationForm />
-      <JobApplicationContainer jobApplications={jobApplications} delete={props.handleDelete}/> 
+      <JobApplicationForm id={props.id} />
+      <JobApplicationContainer jobApplications={jobApplications} delete={props.delete}/> 
     </div>
   )
 }
