@@ -16,6 +16,7 @@
   background-color: rgb(255, 255, 255);
   border-style: groove;
   border-radius: 20px;
+  font-weight: bold;
 }
 
 .job_applications_div {
@@ -29,9 +30,25 @@
 .login {
   border-style: hidden;
   background-color: white;
+  border-radius: 0px 0px 5px 5px;
+}
 
+.signup {
+  border-style: hidden;
+  background-color:rgb(255, 255, 255);
+  border-radius: 5px 5px;
+  padding-bottom: 10px;
 }
 
 .delete-button {
   background-color: rgb(255, 0, 0);
+}
+
+.job_applications_form {
+  margin-left: auto;
+  Margin-right: 0;
+}
+
+.hello {
+  font-size: 80px;
 }
